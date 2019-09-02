@@ -9,15 +9,27 @@ import Education from '../components/Education';
 import Experiencia from '../components/Experiencia';
 import Certificate from '../components/Certificate';
 import Skills from '../components/Skills';
+import { createGlobalStyle } from 'styled-components';
 
+
+const GlobalStyle = createGlobalStyle`
+    body{
+        font-family: 'Lato', sans-serif;
+        margin: 0;
+        padding:0;
+        background: #f5f5f5;
+
+    }
+`;
 
 import useGetinfo from '../hooks/useGetinfo';
 
 const App = () => {
     const datos = useGetinfo();
-    console.log(datos);
+     console.log(datos);
     return datos.length == 0 ? <h1>Cargando..</h1> : (
         <Main>
+            <GlobalStyle/>
             <Side>
                 <About 
                  avatar = {datos.avatar}
